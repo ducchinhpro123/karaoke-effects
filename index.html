@@ -20,8 +20,12 @@
 
         <div id="typedtext"></div>
 
-        <audio id="audio" src="Strangers Again Lyrics by Cinema.mp3" type="audio/mpeg" controls></audio>
-
+        <audio id="audio" src="Strangers Again Lyrics by Cinema.mp3" autoplay></audio>
+        <div id="warning" style="display: none;">
+            <p>Auto-play was prevented. Please click the button below to start the audio.</p>
+            <button id="playButton">Play Audio</button>
+        </div>
+        <div id="counter"></div>
         <br></br>
         <span class="word" data-text="I'd Be A Fool If I Couldn't See" data-time="6">
             I'd Be A Fool If I Couldn't See
@@ -122,26 +126,47 @@
         </span>
 
         <script>
+            function counter() {
+                const counter = document.getElementById("counter");
+                let count = 6;
 
+                const countdown = setInterval(() => {
+                    counter.textContent = count; // Update the div with the current count
+                    count--;
 
-            // const counter = document.getElementById("counter");
-            // let count = 6;
-            //
-            // const countdown = setInterval(() => {
-            //     counter.textContent = count; // Update the div with the current count
-            //     count--;
-            //
-            //     if (count < 0) {
-            //         clearInterval(countdown); // Stop the countdown when it reaches 1
-            //         counter.textContent = "";
-            //     }
-            // }, 1000); // The countdown updates every 1000 milliseconds (1 second)
+                    if (count < 0) {
+                        clearInterval(countdown); // Stop the countdown when it reaches 1
+                        counter.textContent = "";
+                    }
+                }, 1000); // The countdown updates every 1000 milliseconds (1 second)
+
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const audio = document.getElementById("audio");
+                audio.play().catch(error => {
+                    console.log("Auto-play was prevented:", error);
+                });
+            });
+
 
             // start ------------------AUDIO-----------------------------------
 
             const audio = document.getElementById("audio");
             const lyrics = document.querySelectorAll("#lyrics span");
             const highlightedWords = new Set();
+
+
+            audio.play().catch(error => {
+                console.log("Auto-play was prevented:", error);
+                document.getElementById("warning").style.display = "block";
+                document.getElementById("playButton").addEventListener("click", () => {
+                    audio.play();
+                    counter();
+
+                    document.getElementById("warning").style.display = "none";
+                });
+            })
 
             audio.addEventListener("timeupdate", function () {
                 const currentTime = audio.currentTime;
@@ -155,7 +180,7 @@
 
                     const duration = nextWordTime - wordTime; // Calculate duration for the animation
 
-                    if (currentTime >= wordTime && currentTime < nextWordTime) {
+                    if (currentTime >= wordTime && currentTime < nextWordTime && !audio.paused) {
                         word.classList.add('word'); // Add the 'word' class to start the animation
                         word.style.animationDuration = `${duration}s`; // Set animation duration
                         highlightedWords.add(word);
@@ -168,15 +193,13 @@
                         word.classList.remove('text-black');
                         word.classList.add('text-red');
                         word.classList.remove('word'); // Remove the 'word' class to stop the animation
-                    }
-                    else {
+                    } else {
                         // word.style.color = "black";
                         word.classList.add('text-black');
                         word.classList.remove('word'); // Remove the 'word' class to stop the animation
                         // highlightedWords.delete(word);
                     }
                 });
-
 
 
                 // lyrics.forEach(word => {
@@ -191,9 +214,7 @@
             });
 
 
-
-
-            audio.play(); // Start playback 
+            audio.play(); // Start playback
             // end ------------------AUDIO-----------------------------------
 
 
@@ -201,7 +222,7 @@
             var aText = new Array(
                 "Strangers Again - Cinema"
             );
-            var iSpeed = 220; // time delay of print out
+            var iSpeed = 100; // time delay of print out
             var iIndex = 0; // start printing array at this posision
             var iArrLength = aText[0].length; // the length of the text array
             var iScrollAt = 20; // start scrolling up at this many lines
@@ -219,10 +240,10 @@
                     sContents += aText[iRow++] + '<br />';
                 }
                 destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
-                if (iTextPos++ == iArrLength) {
+                if (iTextPos++ === iArrLength) {
                     iTextPos = 0;
                     iIndex++;
-                    if (iIndex != aText.length) {
+                    if (iIndex !== aText.length) {
                         iArrLength = aText[iIndex].length;
                         setTimeout("typewriter()", 500);
                     }
@@ -230,11 +251,16 @@
                     setTimeout("typewriter()", iSpeed);
                 }
             }
+            for (let i = 0; i < lyrics.length; i++) {
+                lyrics[i].addEventListener("click", function () {
+                    audio.currentTime = parseFloat(lyrics[i].getAttribute("data-time"));
+                });
+            }
 
             typewriter();
 
         </script>
-
+    </div>
 </body>
 
 </html>
