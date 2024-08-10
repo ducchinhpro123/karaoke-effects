@@ -124,23 +124,10 @@
         <span data-time="159" data-text="And Now We Are Strangers Again">
             And Now We Are Strangers Again
         </span>
-
+        <br>
+        <a href="i_like_chopin.html">Next</a>
         <script>
-            function counter() {
-                const counter = document.getElementById("counter");
-                let count = 6;
 
-                const countdown = setInterval(() => {
-                    counter.textContent = count; // Update the div with the current count
-                    count--;
-
-                    if (count < 0) {
-                        clearInterval(countdown); // Stop the countdown when it reaches 1
-                        counter.textContent = "";
-                    }
-                }, 1000); // The countdown updates every 1000 milliseconds (1 second)
-
-            }
 
             document.addEventListener("DOMContentLoaded", function () {
                 const audio = document.getElementById("audio");
@@ -184,10 +171,7 @@
                         word.classList.add('word'); // Add the 'word' class to start the animation
                         word.style.animationDuration = `${duration}s`; // Set animation duration
                         highlightedWords.add(word);
-                        // Calculate the progress of the animation
-                        // setTimeout(() => {
-                        //     word.classList.add('text-red');
-                        // }, duration * 1000);
+
 
                     } else if (currentTime > wordTime) {
                         word.classList.remove('text-black');
@@ -196,6 +180,7 @@
                     } else {
                         // word.style.color = "black";
                         word.classList.add('text-black');
+                        word.classList.remove('text-red');
                         word.classList.remove('word'); // Remove the 'word' class to stop the animation
                         // highlightedWords.delete(word);
                     }
@@ -217,6 +202,28 @@
             audio.play(); // Start playback
             // end ------------------AUDIO-----------------------------------
 
+            function counter() {
+
+                const counter = document.getElementById("counter");
+                let count = 6;
+
+                const countdown = setInterval(() => {
+                    counter.textContent = count; // Update the div with the current count
+                    count--;
+
+                    if (audio.currentTime > 6) {
+                        clearInterval(countdown); // Stop the countdown when it reaches 1
+                        counter.textContent = "";
+                        return;
+                    }
+
+                    if (count < 0) {
+                        clearInterval(countdown); // Stop the countdown when it reaches 1
+                        counter.textContent = "";
+                    }
+                }, 1000); // The countdown updates every 1000 milliseconds (1 second)
+
+            }
 
             // set up text to print, each item in array is new line
             var aText = new Array(
@@ -251,6 +258,8 @@
                     setTimeout("typewriter()", iSpeed);
                 }
             }
+
+            // Add event listeners to the lyrics to jump to the corresponding time in the audio
             for (let i = 0; i < lyrics.length; i++) {
                 lyrics[i].addEventListener("click", function () {
                     audio.currentTime = parseFloat(lyrics[i].getAttribute("data-time"));
