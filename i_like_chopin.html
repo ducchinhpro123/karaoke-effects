@@ -283,6 +283,11 @@
             for (let i = 0; i < lyrics.length; i++) {
                 lyrics[i].addEventListener("click", function () {
                     audio.currentTime = parseFloat(lyrics[i].getAttribute("data-time"));
+
+                    if (audio.paused) {
+                        audio.play();
+                    }
+
                 });
             }
 
