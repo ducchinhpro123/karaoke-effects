@@ -1,66 +1,25 @@
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
+    /*height: 180vh;*/
+    background-color: #f0f0f0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
 #lyrics {
-
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    /**/
     text-align: center;
-    font-size: 1em;
+    font-size: 1.1em;
+    margin: 20px;
+    color: #333;
 }
 
 #counter {
     text-align: center;
     font-size: 30px;
-}
-
-/**/
-/*.typewriter h1 {*/
-/*  color: #000;*/
-/*  font-family: monospace;*/
-/*  overflow: hidden; /* Ensures the content is not revealed until the animation */
-
-
-/*  border-right: .15em solid orange; /* The typwriter cursor */
-
-
-/*  white-space: nowrap; /* Keeps the content on a single line */
-
-
-/*  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-
-
-/*  letter-spacing: .15em; /* Adjust as needed */
-
-
-/*  animation: */
-/*    typing 6.5s steps(30, end),*/
-/*    blink-caret .5s step-end infinite;*/
-/*}*/
-/**/
-/*/* The typing effect */
-
-
-/*@keyframes typing {*/
-/*  from { width: 0 }*/
-/*  to { width: 100% }*/
-/*}*/
-/**/
-/*/* The typewriter cursor effect */
-
-
-/*@keyframes blink-caret {*/
-/*  from, to { border-color: transparent }*/
-/*  50% { border-color: orange }*/
-/*}*/
-/**/
-
-#counter {
-    text-align: center;
+    margin: 20px;
+    color: #555;
 }
 
 .word {
@@ -70,13 +29,19 @@ body {
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
     display: inline-block;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.2em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.word:hover {
+    color: darkblue;
+    transform: scale(1.1);
 }
 
 .text-red {
     color: red !important;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.2em;
     text-shadow: 0 0 3px rgba(255, 255, 255, 1);
 }
 
@@ -89,26 +54,20 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    /*top: 50%;*/
     color: red;
     overflow: hidden;
     animation: run-text 5s forwards linear;
-    /* 5s duration will be replaced by  
-    word.style.animationDuration = `${duration}s` */
-    /**/
     text-shadow: 0 0 3px rgba(255, 255, 255, 1);
-    /*width: 0;*/
 }
 
 @keyframes run-text {
     from {
-        width: 0
+        width: 0;
     }
     to {
-        width: 100%
+        width: 100%;
     }
 }
-
 
 #typedtext {
     font-family: 'Waiting for the Sunrise', cursive;
@@ -116,4 +75,7 @@ body {
     margin: 10px 50px;
     letter-spacing: 6px;
     font-weight: bold;
+    color: #333;
 }
+```
+
