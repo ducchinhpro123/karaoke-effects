@@ -1,10 +1,11 @@
 
-function removeText() {
-    document.getElementById("clickText").innerHTML = "<span class=\"word\" data-text=\"Remember that piano\" data-time=\"37\">Remember that piano</span>";
-}
+// function removeText() {
+//     document.getElementById("clickText").innerHTML = "<span class=\"word\" data-text=\"Remember that piano\" data-time=\"37\">Remember that piano</span>";
+// }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const songName = document.getElementById("song-name");
+    console.log("%cENJOY THE MUSIC", "color: blue; font-size: 40px; font-weight: bold; background-color: yellow; padding: 5px;");
+
     const audio = document.getElementById("audio");
     const lyrics = document.querySelectorAll("#lyrics span");
     const highlightedWords = new Set();
@@ -15,16 +16,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function playAudio() {
         audio.play().then(() => {
-            removeText();
+            // removeText();
         })
             .catch(error => {
-                console.log("Auto-play was prevented:", error);
+                // console.log("Auto-play was prevented:", error);
                 document.getElementById("warning").style.display = "block";
-                document.getElementById("playButton").addEventListener("click", () => {
-                    audio.play();
-                    document.getElementById("warning").style.display = "none";
-                });
+                if (audio.paused) {
+                    document.getElementById("playButton").addEventListener("click", () => {
+                        audio.play();
+                        document.getElementById("warning").style.display = "none";
+                    });
+                }
             });
+
+        if (!audio.paused) {
+            document.getElementById("warning").style.display = "none";
+        }
     }
 
     function updateLyrics() {
@@ -36,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 : audio.duration;
             const duration = nextWordTime - wordTime;
 
-            if (currentTime >= wordTime && currentTime < nextWordTime && !audio.paused) {
+            if (currentTime >= wordTime && currentTime < nextWordTime) {
                 word.classList.add('word');
                 word.style.animationDuration = `${duration}s`;
                 highlightedWords.add(word);
