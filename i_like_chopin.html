@@ -6,301 +6,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>I Like Chopin - Gazebo</title>
     <link href="styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
-    <div id="lyrics">
+<div id="lyrics">
 
-        <!-- <div class="typewriter"> -->
-        <!--     <h1>Strangers Again - Cinema</h1> -->
-        <!-- </div> -->
+    <!-- <div class="typewriter"> -->
+    <!--     <h1>Strangers Again - Cinema</h1> -->
+    <!-- </div> -->
 
-        <div id="typedtext"></div>
-        <audio id="audio" src="gazebo-i-like-chopin-98-portrait-94-version.mp3" autoplay></audio>
+    <div id="typedtext"></div>
+    <audio id="audio" src="gazebo-i-like-chopin-98-portrait-94-version.mp3" autoplay></audio>
 
 
-        <div id="warning" style="display: none;">
-            <p>Auto-play was prevented. Please click the button below to start the audio.</p>
-            <button id="playButton">Play Audio</button>
-        </div>
-        <!-- <div id="counter"></div> -->
-        <br></br>
+    <div id="warning" style="display: none;">
+        <p>Auto-play was prevented. Please click the button below to start the audio.</p>
+        <button id="playButton">Play Audio</button>
+    </div>
+    <!-- <div id="counter"></div> -->
+    <br></br>
 
-        <p id="clickText" onclick="removeText()">
-            click -> <span class="word" data-text="Remember that piano" data-time="37">
+    <p id="clickText" onclick="removeText()">
+        click -> <span class="word" data-text="Remember that piano" data-time="37">
                 Remember that piano
             </span>
-        </p>
+    </p>
 
-        <span class="word" data-text="So delightful unusual" data-time="41.5">
+    <span class="word" data-text="So delightful unusual" data-time="41.5">
             So delightful unusual
         </span>
-        <br></br>
-        <span class="word" data-text="That classic sensation" data-time="46">
+    <br></br>
+    <span class="word" data-text="That classic sensation" data-time="46">
             That classic sensation
         </span>
-        <br></br>
-        <span class="word" data-text="Sentimental confusion" data-time="51">
+    <br></br>
+    <span class="word" data-text="Sentimental confusion" data-time="51">
             Sentimental confusion
         </span>
-        <br></br>
-        <span class="word" data-text="Used to say" data-time="56">
+    <br></br>
+    <span class="word" data-text="Used to say" data-time="56">
             Used to say
         </span>
-        <br></br>
-        <span class="word" data-text="I like Chopin" data-time="59">
+    <br></br>
+    <span class="word" data-text="I like Chopin" data-time="59">
             I like Chopin
         </span>
-        <br></br>
-        <span class="word" data-text="Love me now and again" data-time="62">
+    <br></br>
+    <span class="word" data-text="Love me now and again" data-time="62">
             Love me now and again
         </span>
-        <br></br>
-        <span class="word" data-text="Whoa-oh-oh" data-time="67">
+    <br></br>
+    <span class="word" data-text="Whoa-oh-oh" data-time="67">
             Whoa-oh-oh
         </span>
-        <br></br>
-        <span class="word" data-text="Rainy days never say goodbye" data-time="69">
+    <br></br>
+    <span class="word" data-text="Rainy days never say goodbye" data-time="69">
             Rainy days never say goodbye
         </span>
-        <br></br>
-        <span class="word" data-text="To desire when we are together" data-time="73">
+    <br></br>
+    <span class="word" data-text="To desire when we are together" data-time="73">
             To desire when we are together
         </span>
-        <br></br>
-        <span class="word" data-text="Rainy days growing in your eyes" data-time="78">
+    <br></br>
+    <span class="word" data-text="Rainy days growing in your eyes" data-time="78">
             Rainy days growing in your eyes
         </span>
-        <br></br>
-        <span class="word" data-text="Tell me where's my way" data-time="82">
+    <br></br>
+    <span class="word" data-text="Tell me where's my way" data-time="82">
             Tell me where's my way
         </span>
-        <br></br>
-        <span class="word" data-text="Imagine your face" data-time="104">
+    <br></br>
+    <span class="word" data-text="Imagine your face" data-time="104">
             Imagine your face
         </span>
-        <br></br>
-        <span class="word" data-text="In a sunshine reflection" data-time="108">
+    <br></br>
+    <span class="word" data-text="In a sunshine reflection" data-time="108">
             In a sunshine reflection
         </span>
-        <br></br>
-        <span class="word" data-text="A vision of blue skies" data-time="114">
+    <br></br>
+    <span class="word" data-text="A vision of blue skies" data-time="114">
             A vision of blue skies
         </span>
-        <br></br>
-        <span class="word" data-text="Forever distractions" data-time="118">
+    <br></br>
+    <span class="word" data-text="Forever distractions" data-time="118">
             Forever distractions
         </span>
-        <br></br>
-        <span class="word" data-text="Used to say" data-time="123">
+    <br></br>
+    <span class="word" data-text="Used to say" data-time="123">
             Used to say
         </span>
 
-        <br></br>
-        <span class="word" data-text="I like Chopin" data-time="125">
+    <br></br>
+    <span class="word" data-text="I like Chopin" data-time="125">
             I like Chopin
         </span>
-        <br></br>
-        <span class="word" data-text="Love me now and again" data-time="129">
+    <br></br>
+    <span class="word" data-text="Love me now and again" data-time="129">
             Love me now and again
         </span>
-        <br></br>
-        <span class="word" data-text="Whoa-oh-oh" data-time="133">
+    <br></br>
+    <span class="word" data-text="Whoa-oh-oh" data-time="133">
             Whoa-oh-oh
         </span>
-        <br></br>
-        <span class="word" data-text="Rainy days never say goodbye" data-time="136">
+    <br></br>
+    <span class="word" data-text="Rainy days never say goodbye" data-time="136">
             Rainy days never say goodbye
         </span>
 
 
-        <br></br>
-        <span class="word" data-text="To desire when we are together" data-time="140">
+    <br></br>
+    <span class="word" data-text="To desire when we are together" data-time="140">
             To desire when we are together
         </span>
-        <br></br>
-        <span class="word" data-text="Rainy days growing in your eyes" data-time="144">
+    <br></br>
+    <span class="word" data-text="Rainy days growing in your eyes" data-time="144">
             Rainy days growing in your eyes
         </span>
-        <br></br>
-        <span class="word" data-text="Tell me where's my way" data-time="149">
+    <br></br>
+    <span class="word" data-text="Tell me where's my way" data-time="149">
             Tell me where's my way
         </span>
-        <br></br>
-        <span class="word" data-text="Rainy days never say goodbye" data-time="207">
+    <br></br>
+    <span class="word" data-text="Rainy days never say goodbye" data-time="207">
             Rainy days never say goodbye
         </span>
-        <br></br>
-        <span class="word" data-text="To desire when we are together" data-time="211.5">
+    <br></br>
+    <span class="word" data-text="To desire when we are together" data-time="211.5">
             To desire when we are together
         </span>
-        <br></br>
-        <span class="word" data-text="Rainy days growing in your eyes" data-time="215">
+    <br></br>
+    <span class="word" data-text="Rainy days growing in your eyes" data-time="215">
             Rainy days growing in your eyes
         </span>
-        <br></br>
-        <span class="word" data-text="Tell me where's my way" data-time="220">
+    <br></br>
+    <span class="word" data-text="Tell me where's my way" data-time="220">
             Tell me where's my way...
         </span>
-        <br></br>
-        <!--    <a href="i_like_chopin.html">Next</a>-->
-        <script>
-
-
-            document.addEventListener("DOMContentLoaded", function () {
-                const audio = document.getElementById("audio");
-                audio.play().catch(error => {
-                    console.log("Auto-play was prevented:", error);
-                });
-            });
-
-
-            // start ------------------AUDIO-----------------------------------
-
+    <br></br>
+    <!--    <a href="i_like_chopin.html">Next</a>-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
             const audio = document.getElementById("audio");
             const lyrics = document.querySelectorAll("#lyrics span");
             const highlightedWords = new Set();
 
-
-            audio.play().catch(error => {
-                console.log("Auto-play was prevented:", error);
-                document.getElementById("warning").style.display = "block";
-                document.getElementById("playButton").addEventListener("click", () => {
-                    audio.play();
-                    // counter();
-
-                    document.getElementById("warning").style.display = "none";
+            function playAudio() {
+                audio.play().catch(error => {
+                    console.log("Auto-play was prevented:", error);
+                    document.getElementById("warning").style.display = "block";
+                    document.getElementById("playButton").addEventListener("click", () => {
+                        audio.play();
+                        removeText();
+                        document.getElementById("warning").style.display = "none";
+                    });
                 });
-            })
+            }
 
-            audio.addEventListener("timeupdate", function () {
+            function updateLyrics() {
                 const currentTime = audio.currentTime;
-                // console.log(audio.currentTime);
                 lyrics.forEach((word, index) => {
                     const wordTime = parseFloat(word.getAttribute("data-time"));
-
                     const nextWordTime = index < lyrics.length - 1
                         ? parseFloat(lyrics[index + 1].getAttribute("data-time"))
-                        : audio.duration; // If it's the last word, extend until the end of the audio
-
-                    const duration = nextWordTime - wordTime; // Calculate duration for the animation
+                        : audio.duration;
+                    const duration = nextWordTime - wordTime;
 
                     if (currentTime >= wordTime && currentTime < nextWordTime && !audio.paused) {
-                        word.classList.add('word'); // Add the 'word' class to start the animation
-                        word.style.animationDuration = `${duration}s`; // Set animation duration
+                        word.classList.add('word');
+                        word.style.animationDuration = `${duration}s`;
                         highlightedWords.add(word);
-
-
                     } else if (currentTime > wordTime) {
                         word.classList.remove('text-black');
                         word.classList.add('text-red');
-                        word.classList.remove('word'); // Remove the 'word' class to stop the animation
+                        word.classList.remove('word');
                     } else {
-                        // word.style.color = "black";
                         word.classList.add('text-black');
                         word.classList.remove('text-red');
-                        word.classList.remove('word'); // Remove the 'word' class to stop the animation
-                        // highlightedWords.delete(word);
+                        word.classList.remove('word');
                     }
                 });
-
-
-                // lyrics.forEach(word => {
-                //     const wordTime = parseFloat(word.getAttribute("data-time"));
-                //
-                //     if (highlightedWords.has(word)) {
-                //         setTimeout(() => {
-                //             word.style.color = "red";
-                //         }, wordTime * 1000);
-                //     }
-                // })
-            });
-
-
-            audio.play(); // Start playback
-            // end ------------------AUDIO-----------------------------------
-
-            // function counter() {
-            //
-            //     const counter = document.getElementById("counter");
-            //     let count = 38;
-            //
-            //     const countdown = setInterval(() => {
-            //         counter.textContent = count; // Update the div with the current count
-            //         count--;
-            //
-            //         if (count > 38) {
-            //             clearInterval(countdown); // Stop the countdown when it reaches 1
-            //             counter.textContent = "";
-            //             return;
-            //         }
-            //
-            //         if (count < 0) {
-            //             clearInterval(countdown); // Stop the countdown when it reaches 1
-            //             counter.textContent = "";
-            //         }
-            //     }, 1000); // The countdown updates every 1000 milliseconds (1 second)
-            //
-            // }
-
-            // set up text to print, each item in array is new line
-            var aText = new Array(
-                "I Like Chopin - Gazebo"
-            );
-            var iSpeed = 100; // time delay of print out
-            var iIndex = 0; // start printing array at this posision
-            var iArrLength = aText[0].length; // the length of the text array
-            var iScrollAt = 20; // start scrolling up at this many lines
-
-            var iTextPos = 0; // initialise text position
-            var sContents = ''; // initialise contents variable
-            var iRow; // initialise current row
+            }
 
             function typewriter() {
-                sContents = ' ';
-                iRow = Math.max(0, iIndex - iScrollAt);
-                var destination = document.getElementById("typedtext");
+                const aText = ["I Like Chopin - Gazebo"];
+                let iSpeed = 100;
+                let iIndex = 0;
+                let iArrLength = aText[0].length;
+                let iScrollAt = 20;
+                let iTextPos = 0;
+                let sContents = '';
+                let iRow;
 
-                while (iRow < iIndex) {
-                    sContents += aText[iRow++] + '<br />';
-                }
-                destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
-                if (iTextPos++ === iArrLength) {
-                    iTextPos = 0;
-                    iIndex++;
-                    if (iIndex !== aText.length) {
-                        iArrLength = aText[iIndex].length;
-                        setTimeout("typewriter()", 500);
+                function type() {
+                    sContents = ' ';
+                    iRow = Math.max(0, iIndex - iScrollAt);
+                    const destination = document.getElementById("typedtext");
 
+                    while (iRow < iIndex) {
+                        sContents += aText[iRow++] + '<br />';
                     }
-                } else {
-                    setTimeout("typewriter()", iSpeed);
-                }
-            }
-
-            // Add event listeners to the lyrics to jump to the corresponding time in the audio
-            for (let i = 0; i < lyrics.length; i++) {
-                lyrics[i].addEventListener("click", function () {
-                    audio.currentTime = parseFloat(lyrics[i].getAttribute("data-time"));
-
-                    if (audio.paused) {
-                        audio.play();
+                    destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+                    if (iTextPos++ === iArrLength) {
+                        iTextPos = 0;
+                        iIndex++;
+                        if (iIndex !== aText.length) {
+                            iArrLength = aText[iIndex].length;
+                            setTimeout(type, 500);
+                        }
+                    } else {
+                        setTimeout(type, iSpeed);
                     }
+                }
 
-                });
+                type();
             }
-
-            typewriter();
 
             function removeText() {
-                document.getElementById("clickText").innerHTML = "<span class=\"word\" data-text=\"Remember that piano\" data-time=\"37\">\n" +
-                    "        Remember that piano\n" +
-                    "    </span>";
+                document.getElementById("clickText").innerHTML = "<span class=\"word\" data-text=\"Remember that piano\" data-time=\"37\">Remember that piano</span>";
             }
 
-        </script>
-    </div>
+            audio.addEventListener("timeupdate", updateLyrics);
+            lyrics.forEach(word => {
+                word.addEventListener("click", () => {
+                    audio.currentTime = parseFloat(word.getAttribute("data-time"));
+                    if (audio.paused) {
+                        playAudio();
+                    }
+                });
+            });
+
+            playAudio();
+            setInterval(function() {
+                typewriter();
+            }, 5000)
+            typewriter();
+        });
+    </script>
+</div>
 </body>
 
 </html>
