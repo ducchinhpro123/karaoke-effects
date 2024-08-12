@@ -11,6 +11,7 @@ body {
 span {
     cursor: pointer;
 }
+
 #lyrics {
     text-align: center;
     font-size: 1.1em;
@@ -33,7 +34,7 @@ span {
     display: inline-block;
     font-weight: bold;
     font-size: 1.2em;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
 }
 
 .word:hover {
@@ -59,7 +60,7 @@ span {
     top: 0;
     color: red;
     overflow: hidden;
-    animation: run-text 5s forwards linear;
+    animation: run-text var(--animation-duration, 1s)  forwards linear;
     text-shadow: 0 0 3px rgba(255, 255, 255, 1);
 }
 

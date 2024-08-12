@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (currentTime >= wordTime && currentTime < nextWordTime) {
                 word.classList.add('word');
-                word.style.animationDuration = `${duration}s`;
+                word.style.setProperty('--animation-duration', `${duration}s`);
+                // word.style.animationDuration = `${duration}s`;
                 highlightedWords.add(word);
             } else if (currentTime > wordTime) {
                 word.classList.remove('text-black');
