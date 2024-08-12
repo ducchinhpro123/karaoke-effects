@@ -4,6 +4,8 @@
 // }
 
 document.addEventListener("DOMContentLoaded", function () {
+
+
     console.log("%cENJOY THE MUSIC", "color: blue; font-size: 40px; font-weight: bold; background-color: yellow; padding: 5px;");
 
     const audio = document.getElementById("audio");
@@ -13,6 +15,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const fullSrc = audio.src;
     const fileName = fullSrc.split("/").pop();
     const encodedFileName = fileName.replace(/%20/g, " ").split(".")[0];
+
+
+    document.addEventListener("keydown", function (event) {
+        if (event.code === "Space") {
+            if (audio.paused) {
+                document.getElementById("warning").style.display = "none";
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    });
 
     function playAudio() {
         audio.play().then(() => {
