@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("keydown", function (event) {
         if (event.code === "Space") {
+            event.preventDefault();
             if (audio.paused) {
                 document.getElementById("warning").style.display = "none";
                 audio.play();
@@ -60,8 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (currentTime >= wordTime && currentTime < nextWordTime) {
                 word.classList.add('word');
                 word.style.setProperty('--animation-duration', `${duration}s`);
-                // word.style.animationDuration = `${duration}s`;
-                highlightedWords.add(word);
+
+                if (audio.paused) {
+                    // console.log("Paused");
+                    word.style.setProperty('animation-delay', `${duration}s`);
+                    word.style.setProperty('--animation-play-state', 'paused');
+                } else {
+                    word.style.setProperty('--animation-play-state', 'running');
+                }
+
+                // highlightedWords.add(word);
             } else if (currentTime > wordTime) {
                 word.classList.remove('text-black');
                 word.classList.add('text-red');
