@@ -27,8 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.addEventListener("touchstart", function (event) {
-        event.preventDefault();
-        toggleAudio();
+        if (!event.target.matches("#lyrics span")) {
+            event.preventDefault();
+            toggleAudio();
+        }
     });
 
     document.addEventListener("keydown", function (event) {
