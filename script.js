@@ -4,12 +4,11 @@
 // }
 
 document.addEventListener("DOMContentLoaded", function () {
-
-
     console.log("%cENJOY THE MUSIC", "color: blue; font-size: 40px; font-weight: bold; background-color: yellow; padding: 5px;");
 
     const audio = document.getElementById("audio");
     const lyrics = document.querySelectorAll("#lyrics span");
+    const toggleButton = document.querySelector("#toggleButton");
     // const highlightedWords = new Set();
 
     const fullSrc = audio.src;
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("warning").style.display = "none";
             audio.play();
         } else {
-            document.getElementById("warning").style.display = "block";
             audio.pause();
         }
     }
@@ -42,8 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("Auto-play was prevented:", error);
                 document.getElementById("warning").style.display = "block";
                 if (audio.paused) {
-                    document.getElementById("playButton").addEventListener("click", () => {
-                        audio.play();
+                    toggleButton.addEventListener("click", () => {
+                        // audio.play();
+                        toggleAudio();
                         document.getElementById("warning").style.display = "none";
                     });
                 }
@@ -84,6 +83,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 word.classList.remove('word');
             }
         });
+
+        if (!audio.paused) {
+            toggleButton.innerHTML = "stop";
+        } else {
+            toggleButton.innerHTML = "play";
+        }
     }
 
     function typewriter(songName) {
