@@ -16,16 +16,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const fileName = fullSrc.split("/").pop();
     const encodedFileName = fileName.replace(/%20/g, " ").split(".")[0];
 
+    function toggleAudio() {
+        if (audio.paused) {
+            document.getElementById("warning").style.display = "none";
+            audio.play();
+        } else {
+            document.getElementById("warning").style.display = "block";
+            audio.pause();
+        }
+    }
+
+    document.addEventListener("touchstart", function (event) {
+        event.preventDefault();
+        toggleAudio();
+    });
 
     document.addEventListener("keydown", function (event) {
         if (event.code === "Space") {
             event.preventDefault();
-            if (audio.paused) {
-                document.getElementById("warning").style.display = "none";
-                audio.play();
-            } else {
-                audio.pause();
-            }
+            toggleAudio();
         }
     });
 
