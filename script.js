@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const audio = document.getElementById("audio");
     const lyrics = document.querySelectorAll("#lyrics span");
-    const highlightedWords = new Set();
+    // const highlightedWords = new Set();
 
     const fullSrc = audio.src;
     const fileName = fullSrc.split("/").pop();
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // removeText();
         })
             .catch(error => {
-                // console.log("Auto-play was prevented:", error);
+                console.log("Auto-play was prevented:", error);
                 document.getElementById("warning").style.display = "block";
                 if (audio.paused) {
                     document.getElementById("playButton").addEventListener("click", () => {
