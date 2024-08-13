@@ -26,12 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    document.addEventListener("touchstart", function (event) {
-        if (!event.target.matches("#lyrics span")) {
-            event.preventDefault();
-            toggleAudio();
-        }
-    });
 
     document.addEventListener("keydown", function (event) {
         if (event.code === "Space") {
@@ -74,14 +68,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 word.style.setProperty('--animation-duration', `${duration}s`);
 
                 if (audio.paused) {
-                    // console.log("Paused");
                     word.style.setProperty('animation-delay', `${duration}s`);
                     word.style.setProperty('--animation-play-state', 'paused');
                 } else {
                     word.style.setProperty('--animation-play-state', 'running');
                 }
 
-                // highlightedWords.add(word);
             } else if (currentTime > wordTime) {
                 word.classList.remove('text-black');
                 word.classList.add('text-red');
@@ -95,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function typewriter(songName) {
-        // console.log(songName);
         const aText = [songName];
         let iSpeed = 100;
         let iIndex = 0;
