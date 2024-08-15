@@ -1,8 +1,5 @@
 # A small program demo *karaoke effects*
 
-> [!WARNING]
-> This program in progressing, keep your expectations low.
-
 ![Output GIF](output.gif)
 
 ---
