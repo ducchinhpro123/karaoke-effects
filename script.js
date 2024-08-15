@@ -9,21 +9,34 @@ document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("audio");
     const lyrics = document.querySelectorAll("#lyrics span");
     const toggleButton = document.querySelector("#toggleButton");
+    const warning = document.getElementById("warning");
     // const highlightedWords = new Set();
 
     const fullSrc = audio.src;
     const fileName = fullSrc.split("/").pop();
     const encodedFileName = fileName.replace(/%20/g, " ").split(".")[0];
 
+    function isPlaying() {
+        if (!audio.paused) {
+            warning.style.display = "none";
+        } else {
+            warning.style.display = "block";
+        }
+    }
+
     function toggleAudio() {
         if (audio.paused) {
-            document.getElementById("warning").style.display = "none";
+            // document.getElementById("warning").style.display = "none";
+            warning.style.display = "none";
             audio.play();
         } else {
             audio.pause();
         }
     }
 
+    toggleButton.addEventListener("click", function () {
+        toggleAudio();
+    })
 
     document.addEventListener("keydown", function (event) {
         if (event.code === "Space") {
@@ -32,26 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    function playAudio() {
-        audio.play().then(() => {
-            // removeText();
-        })
-            .catch(error => {
-                console.log("Auto-play was prevented:", error);
-                document.getElementById("warning").style.display = "block";
-                if (audio.paused) {
-                    toggleButton.addEventListener("click", () => {
-                        // audio.play();
-                        toggleAudio();
-                        document.getElementById("warning").style.display = "none";
-                    });
-                }
-            });
 
-        if (!audio.paused) {
-            document.getElementById("warning").style.display = "none";
-        }
-    }
 
     function updateLyrics() {
         const currentTime = audio.currentTime;
@@ -136,7 +130,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    playAudio();
+    // playAudio();
+    audio.play();
+    isPlaying();
     // setInterval(function () {
     //     typewriter(encodedFileName);
     // }, 5000)
